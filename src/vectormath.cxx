@@ -1,3 +1,6 @@
+/* * copyrights(c) Hajime UCHIMURA / nikq. */
+
+
 #include <stdio.h>
 #include "vectormath.h"
 

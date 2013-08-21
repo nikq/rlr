@@ -1,5 +1,6 @@
 /*
  * scene.h
+ * copyrights(c) Hajime UCHIMURA / nikq.
  */
 
 

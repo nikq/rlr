@@ -2,6 +2,7 @@
  * mtseq.h
  *
  * implements Mersenne Twister.
+ * copyrights(c) Hajime UCHIMURA / nikq.
  */
 
 

@@ -2,6 +2,7 @@
  * modelholder.h
  *
  * MQO file loader.
+ * copyrights(c) Hajime UCHIMURA / nikq.
  *
  */
 #ifndef __MQOLOAD_H

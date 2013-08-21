@@ -2,6 +2,7 @@
  * scene.cxx
  *
  * implements SPPM integrator, main loop.
+ * copyrights(c) Hajime UCHIMURA / nikq.
  *
  */
 
