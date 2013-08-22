@@ -40,6 +40,60 @@ public:
   const Vector& direction() const { return dir_; }
 };
 
+class Spectrum{
+public:
+  
+  double waveLength_;
+  double power_;
+
+  static double min( void ) { return 380.; }
+  static double max( void ) { return 780.; }
+  static double rnd(  __NS_MTSEQ::MTSequence &mt ) { return 380 + 400 * mt.genrand_real1() ; }
+
+  Spectrum( ) { ; }
+  Spectrum( double w, double p ) : waveLength_(w) , power_( p ) { ; }
+  Spectrum absorb( double r ) { return Spectrum( waveLength_, power_ * r ) ; }
+  inline Spectrum operator*( double r ) const { return Spectrum( waveLength_, power_ * r ) ; }
+  double waveLength(){ return waveLength_ ; }
+  
+  Color getRGB( void ){
+    Color col;
+    double w = waveLength_;
+    
+    if ( w >= 380 && w < 440 ){
+      col.x =  -(w - 440.) / (440. - 380.);
+      col.y = 0.0;
+      col.z = 1.0;
+    }else if( w >= 440 && w < 490 ){
+      col.x =  0.0;
+      col.y = (w - 440.) / (490. - 440.);
+      col.z = 1.0;
+    }else if( w >= 490 && w < 510){
+      col.x =  0.0;
+      col.y = 1.0;
+      col.z = -(w - 510.) / (510. - 490.);
+    } else if( w >= 510 && w < 580 ){
+      col.x =  (w - 510.) / (580. - 510.);
+      col.y = 1.0;
+      col.z = 0.0;
+    } else if( w >= 580 && w < 645){
+      col.x =  1.0;
+      col.y = -(w - 645.) / (645. - 580.);
+      col.z = 0.0;
+    } else if( w >= 645 && w <= 780 ){
+      col.x =  1.0;
+      col.y = 0.0;
+      col.z = 0.0;
+    } else {
+      col.x =  0.0;
+      col.y = 0.0;
+      col.z = 0.0;
+    }
+    return col * power_;
+  }
+};
+
+
 class SceneObject;
 class Intersection{
 protected:
@@ -208,7 +262,7 @@ public:
       refract_ /= sum;
     }
   }
-  
+  double ior( double w ){ return ior_ - 0.02 * (w - 589.3) / 400. ; }
 };
 
 
@@ -550,6 +604,7 @@ public:
         if( v < lo[j] ) lo[j] = v;
       }
     }
+    printf("saturate %f - %f , %f - %f , %f - %f",hi[0],lo[0],hi[1],lo[1],hi[2],lo[2]);
     for(i=0;i<width_*height_;i++){
       for(j=0;j<3;j++){
         raw_[i].set(j,(film_[i].get(j)-lo[j]) / (hi[j]-lo[j]));

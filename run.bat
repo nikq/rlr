@@ -1,1 +1,1 @@
-bin/rlr.exe bin/winosirq2.mqo rlr
+bin/rlr.exe bin/dia.mqo
