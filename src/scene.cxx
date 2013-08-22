@@ -345,14 +345,15 @@ int main( int argc, char *argv[] )
   
   camera.setup(
     __NS_RLR::Vector( range.x*0.2, range.y*0.3, range.z*-0.2 ) + center,
-    __NS_RLR::Vector( 0., range.y * 0.15, 0.), 3.8, 4.0, 0.95 );
+    __NS_RLR::Vector( 0., range.y * 0.05, 0.), 3.8, 4.0, 1.0 );
 
   TRACE trace( scene, bvh, camera, 1280, 720, 1 );
-  
+
+  global_rand.init_genrand(time(NULL));
   double waveLength;
   waveLength = __NS_RLR::Spectrum::rnd( global_rand );
   trace.eyepass( waveLength );
-  int pass=1,index = 1;
+  int pass=1,index = 0;
   double photoncount = 1000000;
   time_t t0,t1,t2;
   time(&t0);
@@ -365,17 +366,18 @@ int main( int argc, char *argv[] )
     double dt = difftime(t2,t0);
     printf("dt %f\n",dt);
     if( dt >= 60.f || index == 1 ) {
-      trace.exposure  ( );
-      trace.film_.normalize();
-      //trace.film_.saturate();
-      char fn[256];
-      sprintf(fn,"rlr_%02d.bmp",index);
-      trace.film_.save_bmp(fn,1.,2.4);
-      sprintf(fn,"rlr_result.bmp");
-      trace.film_.save_bmp(fn,1.,2.4);
-      t0 = t2;
       index ++;
+      t0 = t2;
     }
+    trace.exposure  ( );
+    trace.film_.normalize();
+    //trace.film_.saturate();
+    char fn[256];
+    sprintf(fn,"rlr_%02d.bmp",index);
+    trace.film_.save_bmp(fn,1.,2.4);
+    sprintf(fn,"rlr_result.bmp");
+    trace.film_.save_bmp(fn,1.,2.4);
+    
     waveLength = __NS_RLR::Spectrum::rnd( global_rand );
     pass++;
   }

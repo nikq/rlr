@@ -262,7 +262,7 @@ public:
       refract_ /= sum;
     }
   }
-  double ior( double w ){ return ior_ - 0.02 * (w - 589.3) / 400. ; }
+  double ior( double w ){ return ior_ - ior_ * 0.24 * (w - 589.3) / 400. ; }
 };
 
 
