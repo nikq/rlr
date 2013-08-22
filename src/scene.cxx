@@ -13,6 +13,8 @@
 #include "kdtree.h"
 #include "mtseq.h"
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include <time.h>
 
 __NS_MTSEQ::MTSequence global_rand;
@@ -487,26 +489,11 @@ int main( int argc, char *argv[] )
   
   __NS_RLR::AABB aabb = scene.getAABB();
   aabb.dump();
-  std::vector<__NS_RLR::Sphere> spheres;
   __NS_RLR::SceneMaterial mat;
   
   mat.color_   = __NS_RLR::Vector(0.95,0.95,1.);
   mat.refract_ = 1.;
   mat.ior_     = 1.33;
-  
-  for(int i = 0; i < 2; i ++ ){
-    __NS_RLR::Sphere sphere;
-    double x = aabb.lo().x + global_rand.genrand_real1() * (aabb.hi().x - aabb.lo().x);
-    double y = aabb.lo().y + global_rand.genrand_real1() * (aabb.hi().y - aabb.lo().y);
-    double z = aabb.lo().z + global_rand.genrand_real1() * (aabb.hi().z - aabb.lo().z);
-    double r = (aabb.hi() - aabb.lo()).length() * global_rand.genrand_real1() / 100.;
-    printf("%f,%f,%f %f\n",x,y,z,r);
-    sphere.setup( __NS_RLR::Vector(x,y,z), r );
-    sphere.setMaterial( &mat );
-    int index = spheres.size();
-    spheres.push_back( sphere );
-    scene.registObject( &(spheres[index]) );
-  }
   typedef __NS_BVH::BVH< __NS_RLR::Scene::SceneObjectList > ACCEL;
   typedef SPPM< ACCEL >                                     TRACE;
   //typedef PathTrace< ACCEL >                                TRACE;

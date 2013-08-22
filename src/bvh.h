@@ -9,7 +9,7 @@
 #define __BVH_H
 
 #include "vectormath.h" // for vectormath
-
+#include <iterator>
 #define __NS_BVH       RLR
 #define __NS_BVH_BEGIN namespace __NS_BVH {
 #define __NS_BVH_END   }
@@ -27,8 +27,8 @@ public:
   
   //BVHLeaf< ObjectList > * leaf_;
   ObjectList              leaf_;
-  BVHNode< ObjectList > * __restrict__ left_;
-  BVHNode< ObjectList > * __restrict__ right_;
+  BVHNode< ObjectList > * left_;
+  BVHNode< ObjectList > * right_;
 };
 
 template< typename ObjectList >
