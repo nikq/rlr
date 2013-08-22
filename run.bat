@@ -1,1 +1,1 @@
-bin/rlr.exe bin/dia.mqo
+exe/rlr.exe exe/dia.mqo

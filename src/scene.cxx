@@ -374,9 +374,9 @@ int main( int argc, char *argv[] )
     //trace.film_.saturate();
     char fn[256];
     sprintf(fn,"rlr_%02d.bmp",index);
-    trace.film_.save_bmp(fn,1.,2.4);
+    trace.film_.save_bmp(fn,4.,2.2);
     sprintf(fn,"rlr_result.bmp");
-    trace.film_.save_bmp(fn,1.,2.4);
+    trace.film_.save_bmp(fn,4.,2.2);
     
     waveLength = __NS_RLR::Spectrum::rnd( global_rand );
     pass++;

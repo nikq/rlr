@@ -632,6 +632,7 @@ public:
     unsigned char *rgb;
     int pixel;
     int x,y,i,j;
+    gamma = 1.f / gamma;
     rgb = (unsigned char*)malloc(width_ * height_ * 3);
     for(y = 0; y < height_; y ++ ){
       for(x = 0;x < width_; x ++ ){
