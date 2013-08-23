@@ -1,4 +1,5 @@
-/*
+/* -*- coding: shift_jis -*-
+ *
  * kdtree.h
  *
  * implements kdtree traverser for Photon Query

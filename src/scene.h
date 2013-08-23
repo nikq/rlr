@@ -1,4 +1,5 @@
-/*
+/* -*- coding: shift_jis -*-
+ *
  * scene.h
  *
  * Copyright (c) 2013 Hajime UCHIMURA / nikq.

@@ -1,4 +1,5 @@
-/*
+/* -*- coding: shift_jis -*-
+ *
  * bvh.h
  *
  * implements AXIS-ALIGNED Bounding Volume Hyerarchy.

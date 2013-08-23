@@ -1,4 +1,5 @@
-/*
+/* -*- coding: shift_jis -*-
+ *
  * MQO file loader.
  *
  * Copyright (c) 2013 Hajime UCHIMURA / nikq.
