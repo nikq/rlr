@@ -2,7 +2,8 @@
  * kdtree.h
  *
  * implements kdtree traverser for Photon Query
- * copyrights(c) Hajime UCHIMURA / nikq.
+ *
+ * Copyright (c) 2013 Hajime UCHIMURA / nikq.
  */
 
 #ifndef __KDTREE_H

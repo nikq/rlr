@@ -2,8 +2,8 @@
  * scene.cxx
  *
  * implements SPPM integrator, main loop.
- * copyrights(c) Hajime UCHIMURA / nikq.
  *
+ * Copyright (c) 2013 Hajime UCHIMURA / nikq.
  */
 
 #include "vectormath.h"

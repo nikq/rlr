@@ -1,6 +1,7 @@
 /*
  * MQO file loader.
- * copyrights(c) Hajime UCHIMURA / nikq.
+ *
+ * Copyright (c) 2013 Hajime UCHIMURA / nikq.
  */
 
 #include <string.h>

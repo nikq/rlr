@@ -2,7 +2,8 @@
  * bvh.h
  *
  * implements AXIS-ALIGNED Bounding Volume Hyerarchy.
- * copyrights(c) Hajime UCHIMURA / nikq.
+ *
+ * Copyright (c) 2013 Hajime UCHIMURA / nikq.
  */
 
 #ifndef __BVH_H

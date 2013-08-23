@@ -2,7 +2,7 @@
  * Vectormath.h
  *
  * implements vectormath
- * copyrights(c) Hajime UCHIMURA / nikq.
+ * Copyright (c) 2013 Hajime UCHIMURA / nikq.
  */
 
 
