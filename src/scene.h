@@ -273,8 +273,8 @@ protected:
 private:
 public:
 
-  // geometric informations.
-  // physical material informations.
+  // geometric information.
+  // physical material information.
   
   typedef SceneObject self;
   SceneMaterial      *material_ptr_;
